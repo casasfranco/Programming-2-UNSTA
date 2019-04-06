@@ -9,8 +9,7 @@ public class Main {
     class Flight {
       int passegers;
       int seats;
-
-
+      
       Flight() {
         passegers = 0;
         seats = 300;
@@ -28,7 +27,7 @@ public class Main {
     Flight plane1 = new Flight();
     int option=0;
 
-    while (option == 0){
+    while (option == 0) {
       System.out.println("-------------------------------");
       System.out.println("-------------------------------");
       System.out.println("-------------------------------");
