@@ -1,7 +1,5 @@
 package com.unsta.flight;
-
 import java.util.Scanner;
-
 public class Main {
 
   public static void main(String[] args) {
@@ -9,28 +7,49 @@ public class Main {
     Scanner sc = new Scanner(System.in);
 
     class Flight {
-
-      int passengers;
+      int passegers;
       int seats;
 
-      void Flight() {
-        passengers = 0;
+
+      Flight() {
+        passegers = 0;
         seats = 300;
       }
 
-      void addPassengers(int quantity) {
-        passengers += quantity;
+      void addPassengersAndTakeSeats(int quantity) {
+
+        passegers += quantity;
+        seats -= quantity;
+
+
       }
     }
 
-    Flight bueToMia = new Flight();
+    Flight plane1 = new Flight();
+    int option=0;
 
-    System.out.println("Passengers Bue to Mia: " + bueToMia.passengers);
-    int quantity = sc.nextInt();
-    bueToMia.addPassengers(quantity);
-    System.out.println("Passengers Bue to Mia: " + bueToMia.passengers);
+    while (option == 0){
+      System.out.println("-------------------------------");
+      System.out.println("-------------------------------");
+      System.out.println("-------------------------------");
+      System.out.println("Passengers Bue to Mia: " + plane1.passegers);
 
-    Flight miaToBue = new Flight();
-    System.out.println("Passengers Mia to Bue: " + miaToBue.passengers);
+      System.out.println("Set the quantity of passengers you add: ");
+
+      int quantity = sc.nextInt();
+      if (quantity <= plane1.seats) {
+        plane1.addPassengersAndTakeSeats(quantity);
+
+        System.out.println("Passengers Bue to Mia: " + plane1.passegers);
+        System.out.println("Seats avaible in the flight Bue to Mia: " + plane1.seats);
+      } else {
+        System.out.println("Sorry! The amount of passengers you are adding is larger than the seats avaible");
+      }
+      System.out.println("Press 0 if you want to add more passengers or press any key to exit. Thanks You");
+      Scanner scOption = new Scanner(System.in);
+      option = scOption.nextInt();
+    }
+
   }
 }
+
